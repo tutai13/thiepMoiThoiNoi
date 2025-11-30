@@ -4,8 +4,7 @@
       <!-- HERO SECTION -->
       <section class="hero">
         <h1 class="subtitle" v-scroll-animate data-delay="0">Thiệp</h1>
-        <h1 class="title" v-scroll-animate data-delay="0.5">Mời Thôi Nôi</h1>
-
+        <h1 class="title" v-scroll-animate data-delay="0.5">Mời Thôi Nôi</h1><br>
         <!-- 3 ảnh đứng đẹp như mẫu -->
         <div class="triple-photo" v-scroll-animate data-delay="1">
           <div class="photo-frame">
@@ -41,25 +40,19 @@
       <!-- NỘI DUNG CHÍNH -->
       <section class="content" v-if="showSettings">
         <!-- Lời nhắn -->
-        <div
-          class="section-block message-block"
-          v-scroll-animate
-          data-delay="5"
-        >
-          <p class="label">Lời nhắn</p>
-          <p class="message">
-            Thân mời quý khách đến chung vui cùng gia đình chúng tôi trong ngày
-            thôi nôi của bé Bình An. Rất mong được đón tiếp quý khách để buổi
-            tiệc thêm phần ấm cúng và trọn vẹn.
+        <div class="message-section" v-scroll-animate data-delay="1">
+          <div class="ornament-top">✦ ✦ ✦</div>
+          <p class="message-main">
+            Thân mời quý khách đến chung vui cùng gia đình chúng tôi<br>
+            trong ngày <span class="strong">thôi nôi</span> đầy ý nghĩa của bé 
+            <span class="baby-name-highlight">Bình An</span>.
           </p>
+          <div class="ornament-bottom">  ☆ ｡ ☆ ｡ ☆ </div>
         </div>
 
         <!-- Ngày sinh kiểu thiệp thật -->
-        <div
-          class="section-block birth-real-card"
-          v-scroll-animate
-          data-delay="6"
-        >
+         <div >
+        <div >
           <div class="birth-card">
             <div class="birth-title">TIỆC MỪNG THÔI NÔI</div>
             <div class="birth-time">VÀO LÚC: 17H00</div>
@@ -77,13 +70,9 @@
             </div>
           </div>
         </div>
-
+          <br>
         <!-- Lịch ngày tổ chức -->
-        <div
-          class="section-block calendar-block"
-          v-scroll-animate
-          data-delay="2"
-        >
+        <div>
           <div class="calendar">
             <div class="calendar-header">{{ calendarMonth }}</div>
             <div class="calendar-grid">
@@ -96,10 +85,13 @@
             </div>
           </div>
         </div>
-
+        </div>
+        <!-- Câu nối đẹp ở giữa -->
+        <div class="bridge-text" v-scroll-animate data-delay="2.5">
+          <p>Cùng đếm ngược đến ngày bé Bình An tròn 1 tuổi nhé !!!</p>
+        </div>
         <!-- Đếm ngược LED -->
-        <div class="section-block time-block" v-scroll-animate data-delay="3">
-          <p class="label">Đếm ngược đến sự kiện</p>
+        <div >
           <div class="countdown-grid">
             <div class="countdown-item">
               <div class="num">{{ countdownDays }}</div>
@@ -119,14 +111,17 @@
             </div>
           </div>
         </div>
-
+        
+        <!-- Câu nối giữa đếm ngược và gallery -->
+        <div class="gallery-bridge" v-scroll-animate data-delay="3.2">
+          <p>Cùng ngắm lại những khoảnh khắc đáng yêu của bé Bình An nhé ♡</p>
+        </div>
         <!-- GALLERY ĐƠN GIẢN – SIÊU NHẸ, SIÊU ĐẸP, KHÔNG CRASH SAFARI -->
         <div
           class="section-block gallery-block"
           v-scroll-animate
           data-delay="3.5"
         >
-          <p class="label" style="margin-bottom: 20px">Khoảnh khắc của bé</p>
           <div class="simple-gallery">
             <div
               class="gallery-track"
@@ -143,7 +138,6 @@
             <button class="next" @click="nextSlide">›</button>
           </div>
         </div>
-
         <!-- Địa điểm -->
         <div
           class="section-block location-block"
@@ -440,7 +434,7 @@ const vScrollAnimate = {
 
 .section-block {
   margin-bottom: 2rem;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
   background: #f0fdfa;
   border-radius: 16px;
   border: 1px solid #a7f3d0;
@@ -555,6 +549,44 @@ const vScrollAnimate = {
 }
 
 /* Countdown */
+.bridge-text {
+  text-align: center;
+  margin: 2.5rem 1rem 2rem;
+  padding: 0 1rem;
+}
+
+.bridge-text p {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #065f46;
+  margin: 0;
+  line-height: 1.6;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.5rem;
+}
+
+/* 2 trái tim nhỏ hai bên */
+.bridge-text p::before,
+.bridge-text p::after {
+  content: "♡";
+  position: absolute;
+  top: 50%;
+  color: #f87171;
+  font-size: 1rem;
+  transform: translateY(-50%);
+}
+
+.bridge-text p::before  { left: 0; }
+.bridge-text p::after   { right: 0; }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .bridge-text p {
+    font-size: 1.25rem;
+  }
+}
 .countdown-grid {
   display: flex;
   justify-content: center;
@@ -587,6 +619,44 @@ const vScrollAnimate = {
 }
 
 /* Simple Gallery */
+.gallery-bridge {
+  text-align: center;
+  margin: 2.8rem 1rem 2.2rem;
+  padding: 0 1rem;
+}
+
+.gallery-bridge p {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #065f46;
+  margin: 0;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.8rem;
+}
+
+/* 2 trái tim nhỏ dễ thương hai bên */
+.gallery-bridge p::before,
+.gallery-bridge p::after {
+  content: "♡";
+  position: absolute;
+  top: 50%;
+  color: #fb7185;
+  font-size: 1.1rem;
+  transform: translateY(-50%);
+}
+
+.gallery-bridge p::before { left: 0; }
+.gallery-bridge p::after  { right: 0; }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .gallery-bridge p {
+    font-size: 1.3rem;
+  }
+}
 .simple-gallery {
   position: relative;
   max-width: 100%;
@@ -964,6 +1034,78 @@ const vScrollAnimate = {
 
   .thank-you-simple {
     font-size: 2rem;
+  }
+}
+
+.message-section {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(236, 253, 245, 0.4) 50%, transparent 100%);
+  border-radius: 24px;
+}
+
+.ornament-top,
+.ornament-bottom {
+  font-size: 1.1rem;
+  color: #86efac;
+  letter-spacing: 0.8rem;
+  margin: 0.8rem 0;
+  opacity: 0.8;
+}
+
+.ornament-bottom {
+  letter-spacing: 0.5rem;
+  color: #34d399;
+}
+
+
+
+.message-main {
+  font-size: 1.25rem;
+  line-height: 2;
+  color: #064e3b;
+  margin: 1.8rem 0;
+  font-family: "Playfair Display", serif;
+}
+
+.message-main .strong {
+  font-weight: 900;
+  color: #059669;
+}
+
+.baby-name-highlight {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.7rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #059669, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .message-section {
+    padding: 2.5rem 1rem;
+    margin: -1.5rem 0;
+  }
+  .message-main {
+    font-size: 1.15rem;
+  }
+  .baby-name-highlight {
+    font-size: 1.55rem;
+  }
+  .ornament-top,
+  .ornament-bottom {
+    letter-spacing: 0.5rem;
+    font-size: 1rem;
   }
 }
 </style>
